@@ -4,10 +4,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import login , authenticate, logout
 
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profiles
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm , ProfileForm
 
 # Create your views here.
 
@@ -45,7 +45,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    messages.error(request,"User logged out")
+    messages.info(request,"User logged out")
     return redirect('login')
     
     
@@ -84,7 +84,33 @@ def userProfile(request,pk):
     profile = Profiles.objects.get(id=pk)
     
     topSkills = profile.skill_set.exclude(description__exact="")
-    otherskills = profile.skill_set.filter(description="")
+    otherSkills = profile.skill_set.filter(description="")
     
-    context={'profile':profile,'topSkills':topSkills,'otherSkills':otherskills}
+    context={'profile':profile,'topSkills':topSkills,'otherSkills':otherSkills}
     return render(request,'users/user-profile.html',context)
+
+
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profiles
+    
+    skills = profile.skill_set.all()
+    projects = profile.project_set.all()
+    
+    context={'profile':profile , 'skills':skills , 'projects':projects}
+    return render(request , 'users/account.html', context )
+
+@login_required(login_url='login')
+def editAccount(request):
+    profile = request.user.profiles
+    form = ProfileForm( instance= profile )
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,request.FILES,instance=profile)
+        if form.is_valid():
+            form.save()
+            
+            return redirect('account')
+    context = {'form':form}
+    return render(request , 'users/profile_form.html',context)
+
