@@ -1,58 +1,45 @@
+from distutils.sysconfig import customize_compiler
 from multiprocessing import context
 from django.shortcuts import render,redirect
+from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.core.paginator import Paginator ,PageNotAnInteger , EmptyPage
+
 from .models import Project, Tag
-from .forms import ProjectForm
+from .forms import ProjectForm ,ReviewForm
 from django.db.models import Q
-from .utils import searchProjects
+from .utils import searchProjects , paginateProjects
 
 
 def projects(request):
     
     projects ,search_query = searchProjects(request)
-    
-    page = request.GET.get('page')
-    results = 3
-    paginator = Paginator(projects,results)
-    
-    try:
-        projects =paginator.page(page)
-    except PageNotAnInteger:
-        page=1
-        projects = paginator.page(page)
-    except EmptyPage:
-        page  = paginator.num_pages
-        projects=paginator.page(page)
-      
-    leftIndex = (int(page) - 4)
-    
-    
-    if leftIndex <1:
-        leftIndex=1
-    
-    rightIndex = (int(page) +5)
-    
-    
-    if rightIndex > paginator.num_pages:
-        rightIndex = paginator.num_pages + 1
-    
-    
-    
-    
-      
-      
-    custom_range = range(leftIndex,rightIndex )
+    custom_range , projects = paginateProjects(request,projects,6)
+
         
          
-    context ={'projects':projects , 'search_query':search_query,'paginator':paginator,'custom_range':custom_range}
+    context ={'projects':projects , 'search_query':search_query,'custom_range':custom_range}
     return render(request,'projects/projects.html', context)
 
 def project(request,pk):
     projectObj = Project.objects.get(id=pk)
-    return render(request,'projects/single-project.html',{'project':projectObj,})
+    form =ReviewForm()
+    
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        review = form.save(commit=False)
+        review.project = projectObj
+        review.owner = request.user.profiles
+        review.save()
+        
+        projectObj.getVoteCount
+        
+        # update vote count
+        messages.success(request,'Review Submitted!')
+        return redirect('project' , pk=projectObj.id)
+        
+    return render(request,'projects/single-project.html',{'project':projectObj,'form':form, })
 
 
 @login_required(login_url='login')
