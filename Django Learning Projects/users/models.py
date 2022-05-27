@@ -43,6 +43,7 @@ class Skill(models.Model):
     
 class Message(models.Model):
     sender = models.ForeignKey(Profiles, on_delete=models.SET_NULL,null=True ,blank=True)
+    # on_delete is for agar bnda apna account delete kr k bhi chla jjae tabhi reciever ko msg dikhega
     # null=True a person who does not have account can send message
     recipient = models.ForeignKey(Profiles, on_delete=models.SET_NULL,null=True ,blank=True,related_name="messages")
     name=models.CharField(max_length=200,null=True,blank=True)
