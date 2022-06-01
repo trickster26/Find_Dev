@@ -3,7 +3,7 @@ from django.db import models
 from users.models import Profiles
 
 class Project(models.Model):
-    owner =models.ForeignKey(Profiles, null=True , blank= True , on_delete=models.SET_NULL)
+    owner =models.ForeignKey(Profiles, null=True , blank= True , on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(null=True,blank=True)
     featured_image=models.ImageField(null=True,blank=True,default='default.jpg')
@@ -23,6 +23,15 @@ class Project(models.Model):
         # -created islia takki new projects and new account front page pr ho we can change later
         # ordering = ['-created']
         ordering=['-vote_ratio','-vote_total','title']
+    
+    @property
+    def imageURL(self):
+        try:
+            url = self.featured_image.url
+        except:
+            url=""
+            
+        return url
     
     @property    
     def reviewers(self):

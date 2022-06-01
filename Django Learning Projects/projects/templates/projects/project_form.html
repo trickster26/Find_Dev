@@ -5,7 +5,7 @@
 <main class="formPage my-xl">
     <div class="content-box">
         <div class="formWrapper">
-            <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
+            <a class="backButton" href="{% url 'account' %}"><i class="im im-angle-left"></i></a>
             <br>
 
             <form class="form" method="POST" enctype="multipart/form-data">
@@ -20,6 +20,16 @@
 
                 {% endfor %}
 
+                <div class="form__field">
+                    {% for tag in project.tags.all %}
+                        <div class="project-tag tag tag--pill tag--main" data-tag="{{tag.id}}" data-project="{{project.id}}">{{tag.name}} &#215;</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form__field">
+                     <label for="formInput#text">Tags </label>
+                     <textarea name="newtags" class="input" placeholder="Add new tags here...(eg.HTML, Python etc)"></textarea>
+                </div>
                
 
             
@@ -28,5 +38,7 @@
         </div>
     </div>
 </main>
+
+
 
 {% endblock %}
