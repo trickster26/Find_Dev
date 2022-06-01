@@ -30,6 +30,21 @@ class Profiles(models.Model):
     def __str__(self):
         return str(self.user.username)
     
+    class Meta:
+        # -created islia takki new projects and new account front page pr ho we can change later
+        # ordering = ['-created']
+        #isko change krunga kuch random type dalunga
+        ordering=['created']
+    
+    
+    @property
+    def imageURL(self):
+        try:
+            url = self.profile_image.url
+        except:
+            url=""
+            
+        return url
     
 class Skill(models.Model):
     owner = models.ForeignKey(Profiles,on_delete=models.CASCADE,null=True,blank=True)
@@ -40,6 +55,7 @@ class Skill(models.Model):
     
     def __str__(self):
         return str(self.name)
+    
     
 class Message(models.Model):
     sender = models.ForeignKey(
