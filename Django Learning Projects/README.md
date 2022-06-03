@@ -15,12 +15,18 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```
 pip install -r requirement.txt
 ```
+# To open the site
 
-# run the server 
-
+## run the server 
 ```
 python manage.py runserver
 ```
+
+## Go to : 
+```
+http://127.0.0.1:8000/
+```
+
 
 # if any changes in database model. than use .
 ``` 
