@@ -20,3 +20,9 @@ python manage.py runserver
 ``` 
 python manage.py migrate
 ```
+
+contributers:
+    - Sinesh
+    - Anand Shukla
+    - Ajeet Yadav
+    - Anu Kumar
