@@ -193,7 +193,7 @@ EMAIL_HOST_PASSWORD = 'dtkgpohfwgyvfopi'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_URL='/images/'
 
@@ -220,5 +220,5 @@ AWS_STORAGE_BUCKET_NAME = 'finddev-bucket'
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = False #i want to keep all images not ovveride them kunki hoskta h ki koi dusra user.png s apni photo dale to ma nhi chahta ki kisi aur ki photo jiska naam user.png h render ho
 
-if os.getcwd() == '/app':
-    DEBUG = False
+# if os.getcwd() == '/app':
+#     DEBUG = False
