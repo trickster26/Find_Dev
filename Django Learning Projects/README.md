@@ -22,7 +22,8 @@ python manage.py migrate
 ```
 
 contributers:
+    - Anu Kumar
     - Sinesh
     - Anand Shukla
     - Ajeet Yadav
-    - Anu Kumar
+    - 
