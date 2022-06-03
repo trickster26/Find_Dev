@@ -30,6 +30,11 @@ urlpatterns = [
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 
+
+admin.site.site_header = "Find.Dev"
+admin.site.index_title = "Welcome to Find.Dev"
+admin.site.site_title = "Find.Dev"
+
 # 1 - User submits email for reset              //PasswordResetView.as_view()           //name="reset_password"
 # 2 - Email sent message                        //PasswordResetDoneView.as_view()        //name="passsword_reset_done"
 # 3 - Email with link and reset instructions    //PasswordResetConfirmView()            //name="password_reset_confirm"
