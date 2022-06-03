@@ -218,3 +218,6 @@ AWS_SECRET_ACCESS_KEY = 'zF0O7uet58zCdxTt+XHaIyoKm4m+oDLOpOzifMRL'
 AWS_STORAGE_BUCKET_NAME = 'finddev-bucket'
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = False #i want to keep all images not ovveride them kunki hoskta h ki koi dusra user.png s apni photo dale to ma nhi chahta ki kisi aur ki photo jiska naam user.png h render ho
+
+if os.getcwd() == '/app':
+    DEBUG = False
