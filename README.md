@@ -13,7 +13,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 
 # install modules 
 ```
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 # To open the site
 
