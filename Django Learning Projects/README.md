@@ -16,7 +16,7 @@ pip install -r requirement.txt
 python manage.py runserver
 ```
 
-# after database change.
+# if any changes in database model. than use .
 ``` 
 python manage.py migrate
 ```
