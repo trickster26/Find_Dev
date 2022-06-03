@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from users.models import Profiles
 
+
 class Project(models.Model):
     owner =models.ForeignKey(Profiles, null=True , blank= True , on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
