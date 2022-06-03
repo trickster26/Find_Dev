@@ -1,1 +1,1 @@
-web: gunicorn  Find_Dev.wsgi --log-file -
+web: gunicorn Find_Dev.wsgi --log-file -
