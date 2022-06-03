@@ -1,4 +1,4 @@
-django == 4.0.4
+django 
 
 pillow == 9.1.1
 djangorestframework==3.13.1 
