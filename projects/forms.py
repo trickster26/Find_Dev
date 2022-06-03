@@ -1,8 +1,7 @@
-from logging import PlaceHolder
-# from tkinter import Widget
-from django.forms import ModelForm
+from django.db.models.base import Model
+from django.forms import ModelForm, widgets
 from django import forms
-from .models import Project ,Review
+from .models import Project, Review
 
 
 class ProjectForm(ModelForm):
