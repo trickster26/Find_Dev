@@ -222,3 +222,4 @@ AWS_S3_FILE_OVERWRITE = False #i want to keep all images not ovveride them kunki
   
 if os.getcwd() == '/app':
     DEBUG = False
+    
