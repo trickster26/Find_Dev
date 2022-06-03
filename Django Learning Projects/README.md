@@ -5,6 +5,12 @@
 ```
 python -m venv .venv
 ```
+# IF any problem in env activation : 
+#### in admin powershell paste the command. 
+```
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+```
+
 # install modules 
 ```
 pip install -r requirement.txt
@@ -20,6 +26,12 @@ python manage.py runserver
 ``` 
 python manage.py migrate
 ```
+
+# Hard Refresh 
+ctrl + shift + R
+
+
+
 
 contributers:
     - Anu Kumar
