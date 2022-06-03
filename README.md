@@ -44,4 +44,5 @@ contributers:
     - Sinesh
     - Anand Shukla
     - Ajeet Yadav
-    - 
+
+python manage.py collectstatic
