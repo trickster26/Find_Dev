@@ -5,6 +5,9 @@
 ```
 python -m venv .venv
 ```
+# Select interpreter 
+#### ctrl + shift + P 
+
 # IF any problem in env activation : 
 #### in admin powershell paste the command. 
 ```
@@ -30,6 +33,7 @@ http://127.0.0.1:8000/
 
 # if any changes in database model. than use .
 ``` 
+python manage.py makemigration
 python manage.py migrate
 ```
 
