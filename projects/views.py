@@ -1,14 +1,11 @@
-from distutils.sysconfig import customize_compiler
 from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 
 from .models import Project, Tag
 from .forms import ProjectForm ,ReviewForm
-from django.db.models import Q
 from .utils import searchProjects , paginateProjects
 
 
@@ -19,7 +16,8 @@ def projects(request):
 
         
          
-    context ={'projects':projects , 'search_query':search_query,'custom_range':custom_range}
+    context ={'projects':projects ,
+              'search_query':search_query,'custom_range':custom_range}
     return render(request, 'projects/projects.html' , context)
 
 def project(request,pk):
@@ -60,8 +58,8 @@ def createProject(request):
             return redirect('account')
             
     
-    context ={'form': form}
-    return render(request,"projects/project_form.html",context)
+    context = {'form': form}
+    return render(request,"projects/project_form.html", context)
 
 
 

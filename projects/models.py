@@ -4,10 +4,12 @@ from users.models import Profiles
 
 
 class Project(models.Model):
-    owner =models.ForeignKey(Profiles, null=True , blank= True , on_delete=models.CASCADE)
+    owner =models.ForeignKey(
+        Profiles, null=True , blank= True , on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(null=True,blank=True)
-    featured_image=models.ImageField(null=True,blank=True,default='default.jpg')
+    featured_image=models.ImageField(
+        null=True,blank=True,upload_to ='profiles/',default='profiles/default.jpg')
     demo_link = models.CharField(max_length=2000 , null=True , blank=True)
     source_link = models.CharField(max_length=2000,null=True,blank=True)
     tags=models.ManyToManyField('Tag',blank=True)

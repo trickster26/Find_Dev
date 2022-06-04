@@ -93,6 +93,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -176,6 +177,8 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -197,8 +200,11 @@ STATIC_URL = '/static/'
 
 MEDIA_URL='/images/'
 
-STATICFILES_DIRS =[
-    BASE_DIR / 'static'
+STATICFILES_DIRS=[
+             os.path.join(BASE_DIR, 'static'),
+
+            # BASE_DIR / "static"
+    
 ]
 
 
