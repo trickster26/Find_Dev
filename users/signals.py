@@ -6,6 +6,10 @@ from .models import Profiles
 from django.core.mail import send_mail
 from django.conf import settings
 
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
+    
 def createProfile(sender , instance ,created, **kwargs):
     if created:
         user = instance
@@ -15,7 +19,7 @@ def createProfile(sender , instance ,created, **kwargs):
             email=user.email,
             name=user.first_name,
         )
-        
+
         subject = "Welcome to Find.Dev"
         # message = ["Hi User,"
         #            "Welcome to Find.Dev – we’re excited to have you on board and we’d love to say thank you on behalf of our whole Team for chosing us."
@@ -23,15 +27,18 @@ def createProfile(sender , instance ,created, **kwargs):
         #            "Have any questions , need more information or Want to give any feedback? Just shoot us an email! We’re always here to help."
         #            "Take care,"
         #            "Find.Dev Team"]
-        message = "we are glade you are here!"
+        # message = "we are glade you are here!"
 
-        
+        html_message = render_to_string('mail.html', {'name': user.first_name })
+        message = strip_tags(html_message)
+
         send_mail(
             subject,
             message,
             settings.EMAIL_HOST_USER,
             [profile.email],
-            fail_silently = False, 
+            fail_silently = False,
+            html_message=html_message, 
         )
 
 def updateUser(sender , instance, created,  **kwargs):
