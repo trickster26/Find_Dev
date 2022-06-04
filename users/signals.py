@@ -1,3 +1,4 @@
+from email import message
 from django.db.models.signals import post_save , post_delete
 from django.dispatch import receiver
 from django.contrib.auth.models import User
@@ -16,7 +17,14 @@ def createProfile(sender , instance ,created, **kwargs):
         )
         
         subject = "Welcome to Find.Dev"
-        message = "We are glad you are here!"
+        # message = ["Hi User,"
+        #            "Welcome to Find.Dev – we’re excited to have you on board and we’d love to say thank you on behalf of our whole Team for chosing us."
+        #            "We believe our site will help you in connecting with Developer."
+        #            "Have any questions , need more information or Want to give any feedback? Just shoot us an email! We’re always here to help."
+        #            "Take care,"
+        #            "Find.Dev Team"]
+        message = "we are glade you are here!"
+
         
         send_mail(
             subject,
