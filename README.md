@@ -1,4 +1,4 @@
-# Find_Dev
+# [Find_Dev](https://findev-me.herokuapp.com/)
 
 
 # create virtual environment
@@ -29,12 +29,17 @@ python manage.py runserver
 ```
 http://127.0.0.1:8000/
 ```
+### https://findev-me.herokuapp.com/ ---> findev.me (future)
 
 
 # if any changes in database model. than use .
 ``` 
 python manage.py makemigration
 python manage.py migrate
+```
+# Before Deployment run : 
+```
+python manage.py collectstatic
 ```
 
 # Hard Refresh 
@@ -43,10 +48,20 @@ ctrl + shift + R
 
 
 
-contributers:
-    - Anu Kumar
-    - Sinesh
-    - Anand Shukla
-    - Ajeet Yadav
+# contributers:
+ - Anu Kumar
+ - Sinesh
+ - Anand Shukla
+ - Ajeet Yadav
 
-python manage.py collectstatic
+
+
+
+
+
+
+
+# References 
+### mail : https://github.com/AnubhavMadhav/SendBeautifulEmails-GeeksForGeeks , https://mailtrap.io/blog/django-send-email/ , 
+### deployment : heroku docs
+### ER Diagram : https://drawsql.app/find-dev/diagrams/find-dev# 
