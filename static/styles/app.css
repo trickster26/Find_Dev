@@ -226,7 +226,7 @@ img {
   font-weight: 700;
 }
 
-.hero-section__box > h2 > span:before {
+.hero-section__box > h2 > span::before {
   content: '';
   animation: animate infinite 10s;
 }
