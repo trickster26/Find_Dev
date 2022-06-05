@@ -31,11 +31,13 @@ class Profiles(models.Model):
     def __str__(self):
         return str(self.user.username)
     
+    up_vote = models.IntegerField(blank=True,null=True)
+    
     class Meta:
         # -created islia takki new projects and new account front page pr ho we can change later
         # ordering = ['-created']
         #isko change krunga kuch random type dalunga
-        ordering=['created']
+        ordering=['up_vote','created']
     
     
     @property
