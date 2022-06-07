@@ -41,6 +41,19 @@ python manage.py migrate
 ```
 python manage.py collectstatic
 ```
+# Heroku commands
+### debug throught heroku cli
+
+
+```
+heroku update
+heroku logs --tail
+heroku logs --source app --tail
+
+```
+```
+heroku domains:add findev.me -a find-dev
+```
 
 # Hard Refresh 
 ctrl + shift + R
