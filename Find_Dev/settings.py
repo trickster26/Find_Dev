@@ -130,23 +130,23 @@ WSGI_APPLICATION = 'Find_Dev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'FindDev',
-        'USER': 'Find_Dev',
-        'PASSWORD':'find0987654321',
-        'HOST':'database-1.cm0wyrinyvtr.us-east-1.rds.amazonaws.com',
-        'PORT':'5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'FindDev',
+#         'USER': 'Find_Dev',
+#         'PASSWORD':'find0987654321',
+#         'HOST':'database-1.cm0wyrinyvtr.us-east-1.rds.amazonaws.com',
+#         'PORT':'5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
