@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'recruiters.apps.RecruitersConfig',
+    # 'recruiters.apps.RecruitersConfig',
     'projects.apps.ProjectConfig',
     'users.apps.UsersConfig',
     'rest_framework',
@@ -100,8 +100,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    
 
 ]
 
@@ -130,23 +128,23 @@ WSGI_APPLICATION = 'Find_Dev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'FindDev',
-        'USER': 'Find_Dev',
-        'PASSWORD':'find0987654321',
-        'HOST':'database-1.cm0wyrinyvtr.us-east-1.rds.amazonaws.com',
-        'PORT':'5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'FindDev',
+#         'USER': 'Find_Dev',
+#         'PASSWORD':'find0987654321',
+#         'HOST':'database-1.cm0wyrinyvtr.us-east-1.rds.amazonaws.com',
+#         'PORT':'5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -217,14 +215,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = 'AKIAWM23G5NWVUABXQ3X'
+# AWS_ACCESS_KEY_ID = 'AKIAWM23G5NWVUABXQ3X'
 
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'finddev-bucket'
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_FILE_OVERWRITE = False #i want to keep all images not ovveride them kunki hoskta h ki koi dusra user.png s apni photo dale to ma nhi chahta ki kisi aur ki photo jiska naam user.png h render ho
+# AWS_SECRET_ACCESS_KEY = 'zF0O7uet58zCdxTt+XHaIyoKm4m+oDLOpOzifMRL'
+# AWS_STORAGE_BUCKET_NAME = 'finddev-bucket'
+# AWS_QUERYSTRING_AUTH = False
+# AWS_S3_FILE_OVERWRITE = False #i want to keep all images not ovveride them kunki hoskta h ki koi dusra user.png s apni photo dale to ma nhi chahta ki kisi aur ki photo jiska naam user.png h render ho
 
 # if os.getcwd() == '/app':
 #     DEBUG = False

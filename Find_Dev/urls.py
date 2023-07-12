@@ -9,7 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('projects/',include('projects.urls')),
     path('',include('users.urls')),
-    path('recruiters/',include('recruiters.urls')),
+#     path('recruiters/',include('recruiters.urls')),
     
     path('api/', include('api.urls')),
     
