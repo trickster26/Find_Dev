@@ -34,7 +34,7 @@ http://127.0.0.1:8000/
 
 # if any changes in database model. than use .
 ``` 
-python manage.py makemigration
+python manage.py makemigrations
 python manage.py migrate
 ```
 # Before Deployment run : 
